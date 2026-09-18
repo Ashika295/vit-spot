@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg-primary: #060913;
+  --color-bg-secondary: #0d1117;
+  --color-bg-card: #111827;
+  --color-bg-card-hover: #1a2234;
+  --color-border: rgba(255,255,255,0.06);
+  --color-border-subtle: rgba(255,255,255,0.04);
+
+  --color-available: #10b981;
+  --color-available-dim: rgba(16,185,129,0.15);
+  --color-available-border: rgba(16,185,129,0.35);
+
+  --color-occupied: #f43f5e;
+  --color-occupied-dim: rgba(244,63,94,0.15);
+  --color-occupied-border: rgba(244,63,94,0.35);
+
+  --color-ending-soon: #f59e0b;
+  --color-ending-soon-dim: rgba(245,158,11,0.15);
+  --color-ending-soon-border: rgba(245,158,11,0.35);
+
+  --color-accent: #6366f1;
+  --color-accent-dim: rgba(99,102,241,0.15);
+
+  --color-demo: #8b5cf6;
+  --color-demo-dim: rgba(139,92,246,0.15);
+
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #475569;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.18); }
+
+/* Status color utilities */
+.status-available { color: var(--color-available); }
+.status-occupied { color: var(--color-occupied); }
+.status-ending-soon { color: var(--color-ending-soon); }
+
+.bg-available { background: var(--color-available-dim); border-color: var(--color-available-border); }
+.bg-occupied { background: var(--color-occupied-dim); border-color: var(--color-occupied-border); }
+.bg-ending-soon { background: var(--color-ending-soon-dim); border-color: var(--color-ending-soon-border); }
+
+/* Glass card effect */
+.glass-card {
+  background: rgba(17, 24, 39, 0.8);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(12px);
+}
+
+/* Animated pulse dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+/* Status glow effects */
+@keyframes glow-available {
+  0%, 100% { box-shadow: 0 0 6px rgba(16,185,129,0.4); }
+  50% { box-shadow: 0 0 18px rgba(16,185,129,0.7); }
+}
+@keyframes glow-occupied {
+  0%, 100% { box-shadow: 0 0 6px rgba(244,63,94,0.4); }
+  50% { box-shadow: 0 0 18px rgba(244,63,94,0.7); }
+}
+@keyframes glow-ending {
+  0%, 100% { box-shadow: 0 0 6px rgba(245,158,11,0.4); }
+  50% { box-shadow: 0 0 18px rgba(245,158,11,0.7); }
+}
+
+.glow-available { animation: glow-available 2.5s ease-in-out infinite; }
+.glow-occupied { animation: glow-occupied 2.5s ease-in-out infinite; }
+.glow-ending { animation: glow-ending 1.5s ease-in-out infinite; }
+
+/* Slide up fade in */
+@keyframes slideUpFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-in { animation: slideUpFadeIn 0.35s ease-out forwards; }
+
+/* Modal overlay */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal-backdrop { animation: fadeIn 0.2s ease; }
+.modal-content { animation: scaleIn 0.25s ease; }
+
+/* Timeline bar segments */
+.timeline-occupied { background: rgba(244,63,94,0.7); }
+.timeline-available { background: rgba(16,185,129,0.25); }
+.timeline-now { background: #6366f1; width: 2px; }
+
+/* Source badge styles */
+.badge-scheduled { background: rgba(99,102,241,0.15); color: #818cf8; border: 1px solid rgba(99,102,241,0.3); }
+.badge-faculty { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+.badge-qr { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+.badge-demo { background: rgba(139,92,246,0.15); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+.badge-admin { background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.3); }

@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build & Output
+dist/
+frontend/dist/
+*.log
+
+# Python cache & virtualenvs
+__pycache__/
+backend/__pycache__/
+backend/*/__pycache__/
+backend/routes/__pycache__/
+backend/tests/__pycache__/
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# IDE & Temporary Scratch Files
+.vscode/
+.idea/
+.DS_Store
+scratch/
